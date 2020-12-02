@@ -1,4 +1,4 @@
-## Android Kotlin Template
+## Projeto de template que fiz para o superapp Carrefour Brasil.
 
 O template é um projeto de exemplo que apresenta uma abordagem moderna para o desenvolvimento de aplicativos [Android] (https://www.android.com/) usando o [Kotlin] (https://kotlinlang.org/) e a mais recente pilha tecnológica.
 
@@ -128,7 +128,7 @@ Mas a idéia é ter diferentes ambientes de destino para desenvolvimento e contr
 
 | Tipos   | DEV                                                                             | QA                                                                             | PROD                                                                         |
 |---------|:-------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:----------------------------------------------------------------------------:|
-| Debug   | <p><img src="app/src/debug/res/mipmap-xhdpi/ic_launcher.png"><br> CarrefuorDEV</p> | <p><img src="app/src/debug/res/mipmap-xhdpi/ic_launcher.png"><br> CarrefuorQA</p> | <p><img src="app/src/debug/res/mipmap-xhdpi/ic_launcher.png"><br> Carrefuor</p> |
+| Debug   | <p><img src="app/src/debug/res/mipmap-xhdpi/ic_launcher.png"><br> AppDEV</p> | <p><img src="app/src/debug/res/mipmap-xhdpi/ic_launcher.png"><br> CarrefuorQA</p> | <p><img src="app/src/debug/res/mipmap-xhdpi/ic_launcher.png"><br> Carrefuor</p> |
 | Release | <p><img src="app/src/main/res/mipmap-xhdpi/ic_launcher.png"><br> CarrefuorDEV</p>  | <p><img src="app/src/main/res/mipmap-xhdpi/ic_launcher.png"><br> CarrefuorQA</p>  | <p><img src="app/src/main/res/mipmap-xhdpi/ic_launcher.png"><br> Carrefuor</p>  |
 
 ## Documentação
