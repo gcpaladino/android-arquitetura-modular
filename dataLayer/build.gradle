@@ -1,0 +1,97 @@
+apply plugin: BuildPlugins.ANDROID_LIBRARY
+apply plugin: BuildPlugins.KOTLIN_ANDROID
+apply plugin: BuildPlugins.KOTLIN_ANDROID_EXTENSIONS
+apply plugin: BuildPlugins.NAVIGATION_SAFE_ARGS
+
+android {
+    compileSdkVersion BuildAndroidConfig.COMPILE_SDK_VERSION
+    buildToolsVersion BuildAndroidConfig.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion BuildAndroidConfig.MIN_SDK_VERSION
+        targetSdkVersion BuildAndroidConfig.TARGET_SDK_VERSION
+    }
+
+
+    def baseUrl = [release: '"https://gateway.marvel.com/"',
+                   debug  : '"https://gateway.marvel.com/"',
+                   qa     : '""',
+                   homolog: '""']
+
+    def marvelKey = [public_key: '"104a7fbe4f730ffe5b16f20cf084cdd8"',
+                     private_key  : '"0fa6578add2d8c297fc3a3bac8044c2b887b6950"']
+
+    buildTypes {
+        debug {
+            buildConfigField 'String', 'BASE_URL', baseUrl.debug
+            buildConfigField 'String', 'MARVEL_API_KEY_PUBLIC', marvelKey.public_key
+            buildConfigField 'String', 'MARVEL_API_KEY_PRIVATE', marvelKey.private_key
+        }
+
+        homolog {
+            buildConfigField 'String', 'BASE_URL', baseUrl.homolog
+            buildConfigField 'String', 'MARVEL_API_KEY_PUBLIC', marvelKey.public_key
+            buildConfigField 'String', 'MARVEL_API_KEY_PRIVATE', marvelKey.private_key
+        }
+
+        release {
+            buildConfigField 'String', 'BASE_URL', baseUrl.release
+            buildConfigField 'String', 'MARVEL_API_KEY_PUBLIC', marvelKey.public_key
+            buildConfigField 'String', 'MARVEL_API_KEY_PRIVATE', marvelKey.private_key
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    sourceSets{
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    implementation(Dependencies.KOTLIN)
+    implementation(Dependencies.APPCOMPAT)
+
+
+    implementation(Dependencies.MATERIAL)
+    implementation(Dependencies.RECYCLE_VIEW)
+    implementation(Dependencies.CONSTRAINT_LAYOUT)
+    implementation(Dependencies.SWIPE_REFRESH_LAYOUT)
+
+    implementation(Dependencies.COROUTINES)
+    implementation(Dependencies.COROUTINES_ANDROID)
+
+    implementation(Dependencies.CORE_KTX)
+    implementation(Dependencies.FRAGMENT_KTX)
+
+    implementation(Dependencies.LIFECYCLE_EXTENSIONS)
+    implementation(Dependencies.LIFECYCLE_VIEWMODEL)
+    implementation(Dependencies.NAVIGATION_FRAGMENT_KTX)
+    implementation(Dependencies.NAVIGATION_UI_KTX)
+
+    implementation(Dependencies.RETROFIT)
+    implementation(Dependencies.RETROFIT_CONVERTER)
+    implementation(Dependencies.RETROFIT_CONVERTER_MOSHI)
+    implementation(Dependencies.LOGGING)
+    implementation(Dependencies.TIMBER)
+    implementation(Dependencies.MOSHI)
+    implementation(Dependencies.MOSHI_KTX)
+    implementation(Dependencies.MOSHI_ADAPTERS)
+    implementation(Dependencies.COIL)
+    implementation(Dependencies.KOIN)
+    implementation(Dependencies.KOIN_SCOPE)
+    implementation(Dependencies.KOIN_VIEWMODEL)
+    implementation(Dependencies.HAWK)
+    implementation(Dependencies.ROOM)
+    implementation(Dependencies.ROOM_KTX)
+    api(Dependencies.HAWK)
+
+    testImplementation(TestDependencies.JUNIT)
+    testImplementation(TestDependencies.MOCKK)
+    testImplementation(TestDependencies.COROUTINES_TEST)
+}

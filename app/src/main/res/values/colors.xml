@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff242424</color>
+    <color name="colorPrimaryDark">@android:color/black</color>
+    <color name="colorAccent">@color/material_grey_600</color>
+
+    <color name="diamond_carbon">#ff242424</color>
+    <color name="diamond_carbon_10">#1a242424</color>
+    <color name="diamond_carbon_20">#33242424</color>
+    <color name="diamond_carbon_35">#59242424</color>
+    <color name="diamond_carbon_60">#99242424</color>
+    <color name="diamond_carbon_70">#b2242424</color>
+    <color name="diamond_carbon_90">#e5242424</color>
+    <color name="diamond_carbon_dark">#ff0e0e0e</color>
+    <color name="diamond_carbon_light">#ff424242</color>
+
+
+    <color name="color_blue_clean">#7792b4</color>
+    <color name="color_blue_dark">#1E5BC6</color>
+    <color name="color_red">#E81E26</color>
+    <color name="color_red_22">#22E81E26</color>
+    <color name="color_6407C2">#6407C2</color>
+    <color name="color_8A99A8">#8A99A8</color>
+
+</resources>

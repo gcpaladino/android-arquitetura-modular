@@ -1,0 +1,5 @@
+include BuildModules.APP,
+        BuildModules.DATA,
+        BuildModules.UI
+
+rootProject.name = "Desafio"

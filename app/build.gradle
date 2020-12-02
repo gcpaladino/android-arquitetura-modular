@@ -1,0 +1,124 @@
+apply plugin: BuildPlugins.ANDROID_APPLICATION
+apply plugin: BuildPlugins.KOTLIN_ANDROID
+apply plugin: BuildPlugins.KOTLIN_ANDROID_EXTENSIONS
+apply plugin: BuildPlugins.NAVIGATION_SAFE_ARGS
+apply plugin: BuildPlugins.JACOCO
+
+final app_name = "Desafio"
+
+android {
+    compileSdkVersion BuildAndroidConfig.COMPILE_SDK_VERSION
+    buildToolsVersion BuildAndroidConfig.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId BuildAndroidConfig.APPLICATION_ID
+        minSdkVersion BuildAndroidConfig.MIN_SDK_VERSION
+        targetSdkVersion BuildAndroidConfig.TARGET_SDK_VERSION
+        versionCode BuildAndroidConfig.VERSION_CODE
+        versionName BuildAndroidConfig.VERSION_NAME
+        testInstrumentationRunner BuildAndroidConfig.TEST_INSTRUMENTATION_RUNNER
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    sourceSets{
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+
+            debuggable true
+            minifyEnabled false
+            testCoverageEnabled true
+
+            testProguardFile 'proguard-rules.pro'
+
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+//    dynamicFeatures = [
+//            Module.SUBHOME
+//    ]
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude("META-INF/*.kotlin_module")
+    }
+}
+
+dependencies {
+    implementation project(BuildModules.DATA)
+    implementation project(BuildModules.UI)
+
+    implementation(Dependencies.KOTLIN)
+    implementation(Dependencies.APPCOMPAT)
+    implementation(Dependencies.MATERIAL)
+    implementation(Dependencies.CONSTRAINT_LAYOUT)
+    implementation(Dependencies.NAVIGATION_FRAGMENT_KTX)
+    implementation(Dependencies.TIMBER)
+    implementation(Dependencies.LOGGING)
+    implementation(Dependencies.KOIN)
+    implementation(Dependencies.KOIN_VIEWMODEL)
+    implementation(Dependencies.GOOGLE_SERVICES)
+    implementation(Dependencies.SWIPE_REFRESH_LAYOUT)
+    implementation(Dependencies.COROUTINES)
+    implementation(Dependencies.COROUTINES_ANDROID)
+    implementation(Dependencies.CORE_KTX)
+    implementation(Dependencies.FRAGMENT_KTX)
+    implementation(Dependencies.LIFECYCLE_EXTENSIONS)
+    implementation(Dependencies.LIFECYCLE_VIEWMODEL)
+    implementation(Dependencies.RETROFIT)
+    implementation(Dependencies.RETROFIT_CONVERTER)
+    implementation(Dependencies.MOSHI)
+    implementation(Dependencies.MOSHI_KTX)
+    implementation(Dependencies.COIL)
+    implementation(Dependencies.KOIN_SCOPE)
+    implementation(Dependencies.KOIN_VIEWMODEL)
+    implementation(Dependencies.NAVIGATION_FRAGMENT)
+    implementation(Dependencies.NAVIGATION_UI)
+    implementation(Dependencies.NAVIGATION_FRAGMENT_KTX)
+    implementation(Dependencies.NAVIGATION_UI_KTX)
+    implementation(Dependencies.NAVIGATION_DF_FRAGMENT)
+    implementation(Dependencies.LEGACY_SUPPORT)
+    implementation(Dependencies.EXPANSIONPANEL)
+    implementation(Dependencies.PAGE_INDICATOR)
+    implementation(Dependencies.GLIDE)
+    implementation(Dependencies.PLAY_CORE)
+    implementation(Dependencies.PLAY_CORE_KTX)
+
+    testImplementation(TestDependencies.JUNIT)
+    testImplementation(TestDependencies.MOCKK)
+    testImplementation(TestDependencies.COROUTINES_TEST)
+
+//    debugImplementation(DebugDependencies.LEAKCANARY)
+
+    androidTestImplementation(TestDependencies.NAVIGATION_TESTING)
+
+}

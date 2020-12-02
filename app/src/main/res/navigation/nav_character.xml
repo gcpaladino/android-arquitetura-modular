@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_character"
+    app:startDestination="@id/charactersFragment">
+
+    <action
+        android:id="@+id/goToDetail"
+        app:destination="@id/characterFragment" />
+
+    <fragment
+        android:id="@+id/charactersFragment"
+        android:name="com.marvel.desafioandroid.features.character.view.list.ListFragment"
+        android:label="Characters List"
+        tools:layout="@layout/fragment_character_list">
+    </fragment>
+
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="com.marvel.desafioandroid.features.character.view.detail.DetailFragment"
+        android:label="Character Detail"
+        tools:layout="@layout/fragment_character_list" >
+        <argument
+            android:name="ID"
+            app:argType="long" />
+    </fragment>
+
+
+</navigation>
